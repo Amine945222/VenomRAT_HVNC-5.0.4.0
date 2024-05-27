@@ -2,5 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
+    <ReferencePath>C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\DLLS\Stub;C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\DLLS\Plugins;C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\DLLS\DLLS</ReferencePath>
   </PropertyGroup>
 </Project>

@@ -64,35 +64,333 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
-      <HintPath>..\..\Release\BouncyCastle.Crypto.dll</HintPath>
+      <HintPath>..\DLLS\DLLS\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="cGeoIp">
-      <HintPath>..\..\Release\cGeoIp.dll</HintPath>
+      <HintPath>..\DLLS\DLLS\cGeoIp.dll</HintPath>
+    </Reference>
+    <Reference Include="Client">
+      <HintPath>..\DLLS\Stub\Client.exe</HintPath>
     </Reference>
     <Reference Include="dnlib">
-      <HintPath>..\..\Release\dnlib.dll</HintPath>
+      <HintPath>..\DLLS\DLLS\dnlib.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2">
-      <HintPath>..\..\Release\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net461\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="IconExtractor">
-      <HintPath>..\..\Release\IconExtractor.dll</HintPath>
+      <HintPath>..\DLLS\DLLS\IconExtractor.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>..\DLLS\DLLS\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>..\DLLS\DLLS\netstandard.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-    <Reference Include="Newtonsoft.Json" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\DLLS\DLLS\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="protobuf-net">
-      <HintPath>..\..\Release\protobuf-net.dll</HintPath>
+      <HintPath>..\DLLS\DLLS\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.AppContext">
+      <HintPath>..\DLLS\DLLS\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>..\DLLS\DLLS\System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>..\DLLS\DLLS\System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>..\DLLS\DLLS\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>..\DLLS\DLLS\System.Collections.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>..\DLLS\DLLS\System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>..\DLLS\DLLS\System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>..\DLLS\DLLS\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>..\DLLS\DLLS\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>..\DLLS\DLLS\System.Console.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common">
+      <HintPath>..\DLLS\DLLS\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing">
+      <HintPath>..\DLLS\DLLS\System.Diagnostics.Tracing.dll</HintPath>
+    </Reference>
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>..\DLLS\DLLS\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>..\DLLS\DLLS\System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>..\DLLS\DLLS\System.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>..\DLLS\DLLS\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>..\DLLS\DLLS\System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>..\DLLS\DLLS\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>..\DLLS\DLLS\System.IO.Compression.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>..\DLLS\DLLS\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>..\DLLS\DLLS\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>..\DLLS\DLLS\System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>..\DLLS\DLLS\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>..\DLLS\DLLS\System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>..\DLLS\DLLS\System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>..\DLLS\DLLS\System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>..\DLLS\DLLS\System.IO.Pipes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>..\DLLS\DLLS\System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>..\DLLS\DLLS\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>..\DLLS\DLLS\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>..\DLLS\DLLS\System.Linq.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>..\DLLS\DLLS\System.Linq.Queryable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\DLLS\DLLS\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>..\DLLS\DLLS\System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>..\DLLS\DLLS\System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>..\DLLS\DLLS\System.Net.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>..\DLLS\DLLS\System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>..\DLLS\DLLS\System.Net.Requests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>..\DLLS\DLLS\System.Net.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>..\DLLS\DLLS\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>..\DLLS\DLLS\System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>..\DLLS\DLLS\System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>..\DLLS\DLLS\System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>..\DLLS\DLLS\System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>..\DLLS\DLLS\System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>..\DLLS\DLLS\System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>..\DLLS\DLLS\System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>..\DLLS\DLLS\System.Resources.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>..\DLLS\DLLS\System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>..\DLLS\DLLS\System.Resources.Writer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\DLLS\DLLS\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>..\DLLS\DLLS\System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>..\DLLS\DLLS\System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>..\DLLS\DLLS\System.Runtime.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>..\DLLS\DLLS\System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>..\DLLS\DLLS\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>..\DLLS\DLLS\System.Runtime.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>..\DLLS\DLLS\System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>..\DLLS\DLLS\System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>..\DLLS\DLLS\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>..\DLLS\DLLS\System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>..\DLLS\DLLS\System.Security.Claims.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>..\DLLS\DLLS\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>..\DLLS\DLLS\System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>..\DLLS\DLLS\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>..\DLLS\DLLS\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>..\DLLS\DLLS\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>..\DLLS\DLLS\System.Security.Principal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>..\DLLS\DLLS\System.Security.SecureString.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>..\DLLS\DLLS\System.Text.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>..\DLLS\DLLS\System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>..\DLLS\DLLS\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>..\DLLS\DLLS\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>..\DLLS\DLLS\System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\DLLS\DLLS\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>..\DLLS\DLLS\System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>..\DLLS\DLLS\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>..\DLLS\DLLS\System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>..\DLLS\DLLS\System.Threading.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\DLLS\DLLS\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>..\DLLS\DLLS\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>..\DLLS\DLLS\System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>..\DLLS\DLLS\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>..\DLLS\DLLS\System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>..\DLLS\DLLS\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>..\DLLS\DLLS\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="Vestris.ResourceLib">
+      <HintPath>..\DLLS\DLLS\Vestris.ResourceLib.dll</HintPath>
+    </Reference>
     <Reference Include="Vestris.ResourceLib, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Vestris.ResourceLib.2.2.0-beta0004\lib\net45\Vestris.ResourceLib.dll</HintPath>
     </Reference>

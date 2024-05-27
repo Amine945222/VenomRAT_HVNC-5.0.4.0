@@ -10,7 +10,7 @@ namespace VenomRAT_HVNC.Server.Helper
 {
     internal class DingDing
     {
-        public static void Send(string WebHook, string secret, string content)
+        public static void Send(string webHook, string secret, string content)
         {
             string str1 = "";
             TimeSpan timeSpan = DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, 0);
@@ -24,7 +24,7 @@ namespace VenomRAT_HVNC.Server.Helper
             string str2;
             using (HMACSHA256 hmacshA256 = new HMACSHA256(bytes1))
                 str2 = HttpUtility.UrlEncode(Convert.ToBase64String(hmacshA256.ComputeHash(bytes2)), Encoding.UTF8);
-            string requestUriString = WebHook + "&timestamp=" + num.ToString() + "&sign=" + str2;
+            string requestUriString = webHook + "&timestamp=" + num.ToString() + "&sign=" + str2;
             var data = new
             {
                 msgtype = "text",

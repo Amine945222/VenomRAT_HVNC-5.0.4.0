@@ -231,7 +231,7 @@ namespace VenomRAT_HVNC.Server.Forms
             this.Controls.Add((Control)this.guna2Panel1);
             this.Controls.Add((Control)this.listView1);
             this.FormBorderStyle = FormBorderStyle.None;
-            this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
+            this.Icon = (Icon)componentResourceManager.GetObject($"this.Icon");
             this.Margin = new Padding(2);
             this.Name = "FormNetstat";
             this.StartPosition = FormStartPosition.CenterScreen;

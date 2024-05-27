@@ -242,7 +242,7 @@ namespace VenomRAT_HVNC.Server.Forms
             base.Controls.Add(guna2Panel1);
             base.Controls.Add(listView1);
             base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            base.Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            base.Icon = (System.Drawing.Icon)resources.GetObject($"this.Icon");
             base.Margin = new System.Windows.Forms.Padding(2);
             base.Name = "FormProcessManager";
             base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

