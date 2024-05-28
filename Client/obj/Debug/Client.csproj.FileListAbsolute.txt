@@ -7,3 +7,6 @@ C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Client\obj\Debug\Client.cspro
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Client\obj\Debug\Client.exe
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Client\obj\Debug\Client.pdb
+C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Client\bin\Debug\dnlib.dll
+C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Client\bin\Debug\dnlib.xml
+C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Client\obj\Debug\Client.csproj.CopyComplete

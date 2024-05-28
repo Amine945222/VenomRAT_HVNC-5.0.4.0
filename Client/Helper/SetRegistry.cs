@@ -13,7 +13,7 @@ namespace Client.Helper
 {
   public static class SetRegistry
   {
-    private static readonly string ID = "Software\\" + Settings.Hw_id;
+    private static readonly string ID = "Software\\" + Settings.hwId;
 
     public static bool SetValue(string name, byte[] value)
     {

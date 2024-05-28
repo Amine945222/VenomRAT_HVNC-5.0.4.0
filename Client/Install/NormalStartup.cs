@@ -20,7 +20,7 @@ namespace Client.Install
     {
       try
       {
-        FileInfo fileInfo = new FileInfo(Path.Combine(Environment.ExpandEnvironmentVariables(Settings.Install_Folder), Settings.Install_File));
+        FileInfo fileInfo = new FileInfo(Path.Combine(Environment.ExpandEnvironmentVariables(Settings.InstallFolder), Settings.InstallFile));
         string fileName = Process.GetCurrentProcess().MainModule.FileName;
         if (!(fileName != fileInfo.FullName))
           return;

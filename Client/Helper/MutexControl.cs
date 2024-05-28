@@ -16,7 +16,7 @@ namespace Client.Helper
     public static bool CreateMutex()
     {
       bool createdNew;
-      MutexControl.currentApp = new Mutex(false, Settings.MTX, out createdNew);
+      MutexControl.currentApp = new Mutex(false, Settings.mtx, out createdNew);
       return createdNew;
     }
 

