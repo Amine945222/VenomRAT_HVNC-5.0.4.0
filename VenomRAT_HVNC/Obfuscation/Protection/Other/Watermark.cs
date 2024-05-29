@@ -1,5 +1,7 @@
-﻿using dnlib.DotNet;
+﻿using System;
+using dnlib.DotNet;
 using dnlib.DotNet.Emit;
+
 
 namespace MindLated.Protection.Other
 {
@@ -10,8 +12,8 @@ namespace MindLated.Protection.Other
             foreach (var moduleDef in md.Assembly.Modules)
             {
                 var module = (ModuleDefMD)moduleDef;
-                var attrRef = module.CorLibTypes.GetTypeRef("System", "Attribute");
-                var attrType = new TypeDefUser("", "MindLated", attrRef);
+                var attrRef = module.CorLibTypes.GetTypeRef("System", "Attribute");//RandomString(16, Ascii)
+                var attrType = new TypeDefUser("", MindLated.Protection.Renamer.RenamerPhase.RandomString(16, Renamer.RenamerPhase.Ascii), attrRef);
                 module.Types.Add(attrType);
 
                 var ctor = new MethodDefUser(

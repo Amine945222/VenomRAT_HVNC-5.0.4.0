@@ -66,7 +66,7 @@ namespace MindLated.Protection.String
                 return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount)
                     .TrimEnd("\0".ToCharArray());
             }
-            return "MindLated.png";
+            return "" ;
         }
     }
 }

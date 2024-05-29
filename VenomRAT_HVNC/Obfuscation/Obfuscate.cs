@@ -22,13 +22,8 @@ public class Obfuscate
     public static void Run(string filePath)
     {
         ModuleDefMD md = ModuleDefMD.Load(filePath);
-
-
-        AntiDe4dot.Execute(md.Assembly);
-        AntiDebug.Execute(md);
-        AntiDump.Execute(md);
+        
         Arithmetic.Execute(md);
-            
         ControlFlowObfuscation.Execute(md);
         AddIntPhase.Execute2(md);
         L2FV2.Execute(md);

