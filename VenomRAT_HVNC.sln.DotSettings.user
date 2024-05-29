@@ -128,6 +128,9 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CYounn_005CRiderProjects_005CVenomRAT_005FHVNC_002D5_002E0_002E4_002E0_005CDLLS_005CPlugins_005CSendFile_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CYounn_005CRiderProjects_005CVenomRAT_005FHVNC_002D5_002E0_002E4_002E0_005CDLLS_005CPlugins_005CSendMemory_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CYounn_005CRiderProjects_005CVenomRAT_005FHVNC_002D5_002E0_002E4_002E0_005CDLLS_005CStub_005CClient_002Eexe/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\VenomRAT_HVNC\bin\Debug\VenomRAT_HVNC.exe" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Client_002FProperties_002FResources/@EntryIndexedValue">True</s:Boolean>
 	
 	
