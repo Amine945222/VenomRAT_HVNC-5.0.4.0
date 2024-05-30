@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stub", "Stub\Stub.csproj", "{DC7C4D83-96B0-4396-91A9-65E151FFB432}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunPE", "RunPE\RunPE.csproj", "{2C1B1331-41F2-494C-9589-B18355E0CE99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console_debug", "Console_debug\Console_debug.csproj", "{D9D4CB47-EED0-4553-9D82-E77E67DF320E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,22 @@ Global
 		{DC7C4D83-96B0-4396-91A9-65E151FFB432}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC7C4D83-96B0-4396-91A9-65E151FFB432}.Release|x64.ActiveCfg = Release|Any CPU
 		{DC7C4D83-96B0-4396-91A9-65E151FFB432}.Release|x64.Build.0 = Release|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Debug|x64.Build.0 = Debug|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Release|x64.ActiveCfg = Release|Any CPU
+		{2C1B1331-41F2-494C-9589-B18355E0CE99}.Release|x64.Build.0 = Release|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Debug|x64.Build.0 = Debug|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Release|x64.ActiveCfg = Release|Any CPU
+		{D9D4CB47-EED0-4553-9D82-E77E67DF320E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

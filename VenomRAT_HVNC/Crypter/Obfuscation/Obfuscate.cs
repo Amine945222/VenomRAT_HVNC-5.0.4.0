@@ -57,4 +57,39 @@ public class Obfuscate
             File.Delete(filePath);
         md.Write(filePath);
     }
+    public static void ObfRunPe(string filePath,string filenameOut)
+    {
+        ModuleDefMD md = ModuleDefMD.Load(filePath);
+
+        if (File.Exists(filenameOut))
+            File.Delete(filenameOut);
+        /*AntiDe4dot.Execute(md.Assembly);
+        AntiDebug.Execute(md);
+        AntiDump.Execute(md);
+        Arithmetic.Execute(md);
+
+        ControlFlowObfuscation.Execute(md);
+        AddIntPhase.Execute2(md);
+        L2FV2.Execute(md);
+        StackUnfConfusion.Execute(md);
+        Watermark.Execute(md);
+        ProxyInt.Execute(md);
+        ProxyString.Execute(md);
+
+        RenamerPhase.ExecuteNamespaceRenaming(md);
+        RenamerPhase.ExecuteClassRenaming(md);
+        RenamerPhase.ExecuteMethodRenaming(md);
+        RenamerPhase.ExecuteFieldRenaming(md);
+        RenamerPhase.ExecuteModuleRenaming(md);
+        RenamerPhase.ExecutePropertiesRenaming(md);
+        StringEncPhase.Execute(md);*/
+        
+        Str.Obfuscate(md);
+        Methods.obfuscate_methods(md);
+        Class.Obfuscate(md);
+        NameSpace.Obfuscate(md);
+        Assembly.Obfuscate(md);
+        
+        md.Write(filenameOut);
+    }
 }

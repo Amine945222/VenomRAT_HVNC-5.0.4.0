@@ -13,19 +13,29 @@ public class Methods
             // create method to obfuscation map
             foreach (MethodDef method in type.Methods)
             {
-                // empty method check
-                if (!method.HasBody) continue;
-                // method is a constructor
-                if (method.IsConstructor) continue;
-                // method overrides another
-                if (method.HasOverrides) continue;
-                // method has a rtspecialname, VES needs proper name
+                // Vérification si la méthode a un nom spécial réservé par le runtime
                 if (method.IsRuntimeSpecialName) continue;
-                // method foward declaration
+
+                // Vérification si la méthode est une déclaration anticipée dans une bibliothèque externe
                 if (method.DeclaringType.IsForwarder) continue;
 
+                // Vérification si la méthode est vide
+                if (!method.HasBody) continue;
+
+                // Vérification si la méthode est un constructeur
+                if (method.IsConstructor) continue;
+
+                // Vérification si la méthode remplace une méthode dans une classe de base
+                if (method.HasOverrides) continue;
+
                 string encName = new GenerateKey(10).GenerateStrenghCharacter();
-                Console.WriteLine($"{method.Name} -> {encName}");
+                if (method.Name == Settings.MethodRunPe) // Ne pas toucher la classe main RunPE
+                {
+                    Settings.MethodRunPe = encName;
+                    method.Name = Settings.MethodRunPe;
+                    continue;
+                }
+
                 method.Name = encName;
             }
         }

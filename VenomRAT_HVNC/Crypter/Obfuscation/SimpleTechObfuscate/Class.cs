@@ -11,10 +11,14 @@ public class Class
         foreach (var type in md.GetTypes())
         {
             string encName = new GenerateKey(10).GenerateStrenghCharacter();
-            Console.WriteLine($"{type.Name} -> {encName}");
-            Ressources.Obfuscate(md, type.Name, encName);
+            if (type.Name == Settings.ClassRunPe) // Ne pas toucher la classe main RunPE
+            {
+                Settings.ClassRunPe = encName;
+                type.Name = Settings.ClassRunPe;
+                continue;
+            }
+
             type.Name = encName;
         }
-
     }
 }
