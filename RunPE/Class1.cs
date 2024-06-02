@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using RunPE;
 using RunPE.Properties;
 
-//Use : RunPE.Class1.Execute
-namespace RunPE
+//Use : Runpe.Class1.Execute
+namespace Runpe
 {
     public class Class1 : API
     {
