@@ -7,3 +7,12 @@ C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfusca
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.csproj.CopyComplete
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.dll
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.pdb
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\bin\Debug\Obfuscation.dll
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\bin\Debug\Obfuscation.pdb
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\bin\Debug\dnlib.dll
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\bin\Debug\dnlib.xml
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.csproj.AssemblyReference.cache
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.csproj.CoreCompileInputs.cache
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.csproj.CopyComplete
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.dll
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Obfuscation\obj\Debug\Obfuscation.pdb

