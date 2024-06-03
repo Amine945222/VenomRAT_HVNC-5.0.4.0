@@ -23,6 +23,7 @@ namespace VenomRAT_HVNC.Server.Forms
     public partial class FormBuilder
     {
         public static string FileNameAssembly;
+        public static string FileNameIcon;
         public FormBuilder()
         {
             InitializeComponent();
@@ -230,6 +231,10 @@ namespace VenomRAT_HVNC.Server.Forms
                         {
                             saveFileDialog.FileName = FileNameAssembly;
                         }
+                        else if (!string.IsNullOrEmpty(FileNameIcon))
+                        {
+                            saveFileDialog.FileName = FileNameIcon;
+                        }
                         else
                         {
                             saveFileDialog.FileName = "ProtectedClient";
@@ -372,6 +377,8 @@ namespace VenomRAT_HVNC.Server.Forms
                         picIcon.ImageLocation = openFileDialog.FileName;
                     }
                 }
+
+                FileNameIcon = Path.GetFileName(openFileDialog.FileName);
             }
         }
 
