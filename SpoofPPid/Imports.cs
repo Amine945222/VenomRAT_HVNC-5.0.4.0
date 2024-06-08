@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace RunPE
+namespace SpoofPPid
 {
-    public class Api
+    public class Imports
     {
+        [DllImport("kernel32.dll")]
+        public static extern bool CreateProcess(string lpApplicationName, string lpCommandLine, IntPtr lpProcessAttributes, IntPtr lpThreadAttributes, bool bInheritHandles, uint dwCreationFlags, IntPtr lpEnvironment, string lpCurrentDirectory, [In] ref STARTUPINFOEX lpStartupInfo, ref PROCESS_INFORMATION lpProcessInformation);
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr OpenProcess(ProcessAccessFlags processAccess, bool bInheritHandle, int processId);
+        [DllImport("kernel32.dll")]
+        public static extern bool UpdateProcThreadAttribute(IntPtr lpAttributeList, uint dwFlags, IntPtr attribute, IntPtr lpValue, IntPtr cbSize, IntPtr lpPreviousValue, IntPtr lpReturnSize);
+        [DllImport("kernel32.dll")]
+        public static extern bool InitializeProcThreadAttributeList(IntPtr lpAttributeList, int dwAttributeCount, int dwFlags, ref IntPtr lpSize);
+
+
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct Startupinfoex
+        public struct STARTUPINFOEX
         {
-            public Startupinfo StartupInfo;
+            public STARTUPINFO StartupInfo;
             public IntPtr lpAttributeList;
         }
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct Startupinfo
+        public struct STARTUPINFO
         {
             public Int32 cb;
             public string lpReserved;
@@ -35,43 +45,14 @@ namespace RunPE
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct ProcessInformation
+        public struct PROCESS_INFORMATION
         {
             public IntPtr hProcess;
             public IntPtr hThread;
             public int dwProcessId;
             public int dwThreadId;
         }
-        
-        [DllImport("kernel32.dll")]
-        public static extern bool CreateProcess(string lpApplicationName, string lpCommandLine, IntPtr lpProcessAttributes, IntPtr lpThreadAttributes, bool bInheritHandles, uint dwCreationFlags, IntPtr lpEnvironment, string lpCurrentDirectory, [In] ref Startupinfoex lpStartupInfo, ref ProcessInformation lpProcessInformation);
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr OpenProcess(ProcessAccessFlags processAccess, bool bInheritHandle, int processId);
-        [DllImport("kernel32.dll")]
-        public static extern bool UpdateProcThreadAttribute(IntPtr lpAttributeList, uint dwFlags, IntPtr attribute, IntPtr lpValue, IntPtr cbSize, IntPtr lpPreviousValue, IntPtr lpReturnSize);
-        [DllImport("kernel32.dll")]
-        public static extern bool InitializeProcThreadAttributeList(IntPtr lpAttributeList, int dwAttributeCount, int dwFlags, ref IntPtr lpSize);
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool GetThreadContext(IntPtr thread, int[] context);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool ReadProcessMemory(IntPtr process, int ebx, ref int baseAdress, int bufferSize,
-            ref int bytesRead);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern int VirtualAllocEx(IntPtr process, int imageBase, int sizeOfImage, int type, int protect);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool WriteProcessMemory(IntPtr process, int baseAddress, byte[] payload, int bufferSize,
-            ref int bytesWritten);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool SetThreadContext(IntPtr thread, int[] context);
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern int ResumeThread(IntPtr thread);
-        
         [Flags]
         public enum ProcessAccessFlags : uint
         {
@@ -108,6 +89,5 @@ namespace RunPE
 
         public const int SW_HIDE = 0;
         public const int SW_SHOW = 5;
-        
     }
 }

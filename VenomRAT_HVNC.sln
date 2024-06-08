@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obfuscation", "Obfuscation\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpBlock", "SharpBlock\SharpBlock.csproj", "{D2EBB323-1B98-4015-98B0-00027CEE9AA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpoofPPid", "SpoofPPid\SpoofPPid.csproj", "{660839C0-0B49-4451-808A-A3166EA3E591}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,14 @@ Global
 		{D2EBB323-1B98-4015-98B0-00027CEE9AA0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2EBB323-1B98-4015-98B0-00027CEE9AA0}.Release|x64.ActiveCfg = Release|Any CPU
 		{D2EBB323-1B98-4015-98B0-00027CEE9AA0}.Release|x64.Build.0 = Release|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Debug|x64.Build.0 = Debug|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Release|x64.ActiveCfg = Release|Any CPU
+		{660839C0-0B49-4451-808A-A3166EA3E591}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

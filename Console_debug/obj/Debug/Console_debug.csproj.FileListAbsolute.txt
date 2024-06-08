@@ -7,3 +7,12 @@ C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Conso
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.csproj.CopyComplete
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.exe
 C:\Users\Younn\RiderProjects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.pdb
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\bin\Debug\Console_debug.exe
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\bin\Debug\Console_debug.pdb
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\bin\Debug\RunPE.dll
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\bin\Debug\RunPE.pdb
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.csproj.AssemblyReference.cache
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.csproj.CoreCompileInputs.cache
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.csproj.CopyComplete
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.exe
+C:\Users\Younn\OneDrive\Documents\Informations\C#\Projects\VenomRAT_HVNC-5.0.4.0\Console_debug\obj\Debug\Console_debug.pdb
